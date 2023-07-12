@@ -50,42 +50,56 @@ function calculateMBTI() {
 }
 
 function getPersonalityType(mbtiResult) {
-  // 각 MBTI 유형에 따라 성격 유형을 반환하는 함수
-  // 선택지에 따라 성격 유형이 변하도록 설정합니다.
   let personalityType = '';
 
   switch (mbtiResult) {
     case 'ISTJ':
-      if (document.getElementById('question5E').checked) {
-        personalityType = '차분한 전략가';
-      } else {
-        personalityType = '현실적인 관리자';
-      }
+      personalityType = '차분한 전략가';
       break;
-    case 'ENFP':
-      if (document.getElementById('question1E').checked) {
-        if (document.getElementById('question4E').checked) {
-          personalityType = '재기발랄한 영감주의자';
-        } else {
-          personalityType = '논리적인 상담사';
-        }
-      } else {
-        personalityType = '사교적인 친선도모자';
-      }
+    case 'ISFJ':
+      personalityType = '용감한 수호자';
+      break;
+    case 'INFJ':
+      personalityType = '예언자';
+      break;
+    case 'INTJ':
+      personalityType = '용의주도한 전략가';
       break;
     case 'ISTP':
-      if (document.getElementById('question4E').checked) {
-        personalityType = '논리적인 공영주의자';
-      } else {
-        personalityType = '고립된 기술자';
-      }
+      personalityType = '만능 재주꾼';
+      break;
+    case 'ISFP':
+      personalityType = '호기심 많은 예술가';
+      break;
+    case 'INFP':
+      personalityType = '열정적인 중재자';
+      break;
+    case 'INTP':
+      personalityType = '논리적인 사색가';
+      break;
+    case 'ESTP':
+      personalityType = '모험을 즐기는 사업가';
+      break;
+    case 'ESFP':
+      personalityType = '자유로운 영혼의 연예인';
+      break;
+    case 'ENFP':
+      personalityType = '재기발랄한 영감주의자';
+      break;
+    case 'ENTP':
+      personalityType = '뜨거운 논쟁을 즐기는 변론가';
+      break;
+    case 'ESTJ':
+      personalityType = '엄격한 관리자';
       break;
     case 'ESFJ':
-      if (document.getElementById('question2E').checked) {
-        personalityType = '자상한 외교관';
-      } else {
-        personalityType = '사교적인 친선도모자';
-      }
+      personalityType = '사교적인 외교관';
+      break;
+    case 'ENFJ':
+      personalityType = '정의로운 사회운동가';
+      break;
+    case 'ENTJ':
+      personalityType = '대담한 통솔자';
       break;
     default:
       personalityType = '알 수 없음';
