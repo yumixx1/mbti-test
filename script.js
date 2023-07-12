@@ -64,7 +64,11 @@ function getPersonalityType(mbtiResult) {
       break;
     case 'ENFP':
       if (document.getElementById('question1E').checked) {
-        personalityType = '재기발랄한 영감주의자';
+        if (document.getElementById('question4E').checked) {
+          personalityType = '재기발랄한 영감주의자';
+        } else {
+          personalityType = '논리적인 상담사';
+        }
       } else {
         personalityType = '사교적인 친선도모자';
       }
