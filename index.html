@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MBTI 검사</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>MBTI 검사</h1>
+    <form id="mbtiForm">
+      <h3>질문 1: 어떤 것이 더 매력적인가요?</h3>
+      <div class="options">
+        <label><input type="radio" name="question1" value="E">외향적인 활동</label>
+        <label><input type="radio" name="question1" value="I">내향적인 활동</label>
+      </div>
+
+      <h3>질문 2: 어떤 것이 더 중요한가요?</h3>
+      <div class="options">
+        <label><input type="radio" name="question2" value="S">세부 사항</label>
+        <label><input type="radio" name="question2" value="N">전체 그림</label>
+      </div>
+
+      <h3>질문 3: 어떤 것에 더 관심이 있나요?</h3>
+      <div class="options">
+        <label><input type="radio" name="question3" value="T">논리적 분석</label>
+        <label><input type="radio" name="question3" value="F">감정적 고려</label>
+      </div>
+
+      <h3>질문 4: 어떤 것을 더 선호하나요?</h3>
+      <div class="options">
+        <label><input type="radio" name="question4" value="J">계획적인 일처리</label>
+        <label><input type="radio" name="question4" value="P">유연한 일처리</label>
+      </div>
+
+    
+
+      <div class="button-container">
+        <input type="button" value="결과 확인" onclick="calculateMBTI()">
+      </div>
+    </form>
+
+    <div class="result-container">
+      <div id="result" class="result-text"></div>
+      <div id="personality" class="result-text"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
