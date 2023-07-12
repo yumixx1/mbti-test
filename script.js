@@ -51,19 +51,43 @@ function calculateMBTI() {
 
 function getPersonalityType(mbtiResult) {
   // 각 MBTI 유형에 따라 성격 유형을 반환하는 함수
-  // 여기에서는 예시로 몇 가지 유형만 포함되어 있습니다.
+  // 선택지에 따라 성격 유형이 변하도록 설정합니다.
+  let personalityType = '';
+
   switch (mbtiResult) {
     case 'ISTJ':
-      return '현실적인 관리자';
+      if (document.getElementById('question5E').checked) {
+        personalityType = '차분한 전략가';
+      } else {
+        personalityType = '현실적인 관리자';
+      }
+      break;
     case 'ENFP':
-      return '재기발랄한 영감주의자';
+      if (document.getElementById('question1E').checked) {
+        personalityType = '재기발랄한 영감주의자';
+      } else {
+        personalityType = '사교적인 친선도모자';
+      }
+      break;
     case 'ISTP':
-      return '논리적인 공영주의자';
+      if (document.getElementById('question4E').checked) {
+        personalityType = '논리적인 공영주의자';
+      } else {
+        personalityType = '고립된 기술자';
+      }
+      break;
     case 'ESFJ':
-      return '사교적인 친선도모자';
+      if (document.getElementById('question2E').checked) {
+        personalityType = '자상한 외교관';
+      } else {
+        personalityType = '사교적인 친선도모자';
+      }
+      break;
     default:
-      return '알 수 없음';
+      personalityType = '알 수 없음';
   }
+
+  return personalityType;
 }
 
 const resultButton = document.querySelector('input[type="button"]');
