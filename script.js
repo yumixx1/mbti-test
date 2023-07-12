@@ -11,6 +11,7 @@ function calculateMBTI() {
   let jCount = 0;
   let pCount = 0;
 
+  // 선택지에 따라 카운트 수 증가
   for (let i = 0; i < answers.length; i++) {
     if (answers[i].type === 'radio' && answers[i].checked) {
       const value = answers[i].value;
@@ -40,46 +41,68 @@ function calculateMBTI() {
     }
   }
 
+  // MBTI 결과 계산
   const mbtiResult = `${eCount > iCount ? 'E' : 'I'}${sCount > nCount ? 'S' : 'N'}${tCount > fCount ? 'T' : 'F'}${jCount > pCount ? 'J' : 'P'}`;
   const resultElement = document.getElementById('result');
   resultElement.innerHTML = `당신의 MBTI 결과: ${mbtiResult}`;
 
-  const personalityType = getPersonalityType(mbtiResult, answers);
+  // MBTI 결과에 따른 성격 유형 반환
+  const personalityType = getPersonalityType(mbtiResult);
   const personalityElement = document.getElementById('personality');
   personalityElement.innerHTML = `당신의 성격 유형: ${personalityType}`;
 }
 
-function getPersonalityType(mbtiResult, answers) {
+function getPersonalityType(mbtiResult) {
   let personalityType = '';
 
   switch (mbtiResult) {
     case 'ISTJ':
-      if (answers[4].value === 'E') {
-        personalityType = '차분한 전략가';
-      } else {
-        personalityType = '현실적인 관리자';
-      }
+      personalityType = '차분한 전략가';
       break;
-    case 'ENFP':
-      if (answers[0].value === 'E' && answers[3].value === 'J') {
-        personalityType = '재기발랄한 영감주의자';
-      } else {
-        personalityType = '사교적인 친선도모자';
-      }
+    case 'ISFJ':
+      personalityType = '용감한 수호자';
+      break;
+    case 'INFJ':
+      personalityType = '예언자';
+      break;
+    case 'INTJ':
+      personalityType = '용의주도한 전략가';
       break;
     case 'ISTP':
-      if (answers[3].value === 'E') {
-        personalityType = '논리적인 공영주의자';
-      } else {
-        personalityType = '고립된 기술자';
-      }
+      personalityType = '만능 재주꾼';
+      break;
+    case 'ISFP':
+      personalityType = '호기심 많은 예술가';
+      break;
+    case 'INFP':
+      personalityType = '열정적인 중재자';
+      break;
+    case 'INTP':
+      personalityType = '논리적인 사색가';
+      break;
+    case 'ESTP':
+      personalityType = '모험을 즐기는 사업가';
+      break;
+    case 'ESFP':
+      personalityType = '자유로운 영혼의 연예인';
+      break;
+    case 'ENFP':
+      personalityType = '재기발랄한 영감주의자';
+      break;
+    case 'ENTP':
+      personalityType = '뜨거운 논쟁을 즐기는 변론가';
+      break;
+    case 'ESTJ':
+      personalityType = '엄격한 관리자';
       break;
     case 'ESFJ':
-      if (answers[1].value === 'E') {
-        personalityType = '자상한 외교관';
-      } else {
-        personalityType = '사교적인 친선도모자';
-      }
+      personalityType = '사교적인 외교관';
+      break;
+    case 'ENFJ':
+      personalityType = '정의로운 사회운동가';
+      break;
+    case 'ENTJ':
+      personalityType = '대담한 통솔자';
       break;
     default:
       personalityType = '알 수 없음';
@@ -90,3 +113,4 @@ function getPersonalityType(mbtiResult, answers) {
 
 const resultButton = document.querySelector('input[type="button"]');
 resultButton.addEventListener('click', calculateMBTI);
+
