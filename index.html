@@ -1,50 +1,151 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="ko-kr">
 <head>
-  <title>MBTI 검사</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta htp-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="정재욱님의 주민등록증 모바일 확인 서비스">
+    <meta property="og:image" content="static/icon/mobile_icon.ico">
+    <meta property="og:description" content="주민등록증 모바일 확인 서비스">
+    <meta property="og:site_name" content="주민등록증 모바일 확인 서비스">
+
+    <link rel="apple-touch-icon" href="static/icon/mobile_icon.ico">
+    <link rel="shortcut icon" href="static/icon/mobile_icon.ico">
+    <link rel="stylesheet" href="https://www.junglesystem.com/theme/junglesystem_2017/css/default.css?ver=161120">
+    <link rel="stylesheet" href="static/css/font_SJSejongGothic.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>정부24</title>
 </head>
 <body>
-  <div class="container">
-    <h1>MBTI 검사</h1>
-    <form id="mbtiForm">
-      <h3>질문 1: 어떤 것이 더 매력적인가요?</h3>
-      <div class="options">
-        <label><input type="radio" name="question1" value="E">외향적인 활동</label>
-        <label><input type="radio" name="question1" value="I">내향적인 활동</label>
-      </div>
 
-      <h3>질문 2: 어떤 것이 더 중요한가요?</h3>
-      <div class="options">
-        <label><input type="radio" name="question2" value="S">세부 사항</label>
-        <label><input type="radio" name="question2" value="N">전체 그림</label>
-      </div>
+    <script>
+        function showLoadingScreen() {
+            const loadingScreen = document.createElement('div');
+            loadingScreen.style.position = 'fixed';
+            loadingScreen.style.top = '0';
+            loadingScreen.style.left = '0';
+            loadingScreen.style.width = '100%';
+            loadingScreen.style.height = '100%';
+            loadingScreen.style.backgroundColor = 'white';
+            loadingScreen.style.display = 'flex';
+            loadingScreen.style.justifyContent = 'center';
+            loadingScreen.style.alignItems = 'center';
+            loadingScreen.style.zIndex = '9999';
 
-      <h3>질문 3: 어떤 것에 더 관심이 있나요?</h3>
-      <div class="options">
-        <label><input type="radio" name="question3" value="T">논리적 분석</label>
-        <label><input type="radio" name="question3" value="F">감정적 고려</label>
-      </div>
+            const loadingImage = document.createElement('img');
+            loadingImage.src = "/static/icon/icon.png";
+            loadingImage.style.width = '100px';
 
-      <h3>질문 4: 어떤 것을 더 선호하나요?</h3>
-      <div class="options">
-        <label><input type="radio" name="question4" value="J">계획적인 일처리</label>
-        <label><input type="radio" name="question4" value="P">유연한 일처리</label>
-      </div>
+            loadingScreen.appendChild(loadingImage);
+            document.body.appendChild(loadingScreen);
 
-    
+            setTimeout(function () {
+                const loadingScreen = document.querySelector('div');
+                loadingScreen.style.display = 'none';
 
-      <div class="button-container">
-        <input type="button" value="결과 확인" onclick="calculateMBTI()">
-      </div>
-    </form>
+                document.body.style.overflow = 'auto';
+            }, 2000);
+        }
 
-    <div class="result-container">
-      <div id="result" class="result-text"></div>
-      <div id="personality" class="result-text"></div>
+        showLoadingScreen();
+
+        document.body.style.overflow = 'hidden';
+    </script>
+
+
+
+    <div class="header">
+        <img src = "static/icon/icon.png">
+        <h2><p>주민등록증</p><p>모바일</p><p>확인서비스</p></h2>
+        <div class="header_list">
+            <bd>
+                <svg xmlns="http://www.w3.org/2000/svg" ; width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+                </svg>
+            </bd>
+        </div>
     </div>
-  </div>
+    <hr color="#ddeaf3">
+    <div id="wrap" class="">
+        <div id="box" class="box_main">
+            <img src="https://media.discordapp.net/attachments/1178207901865742368/1182224084508082216/IMG_6802.jpg?ex=6583eafa&amp" ;is=657175fa&amp;hm=eb46c7be4aacc5769be9925676b28a03570a4ae82abbd9f5a31984a7cc2ce5f2&amp;" ; style="margin-top: 20px;">
+            <br>
+            <br>
+            <h1>정재욱</h1>
+            <h2 style="margin-left: 27px;">03.08.06</h2>
+            <h3>인천광역시 서구</h3>
+            <div class="QR_Code">
+                <img id="QR_img" src="https://chart.apis.google.com/chart?cht=qr&amp;chs=300x300&amp;chl=IDM200CQ04JN/XVojvKRLADvNK2AR9DNyQhjkRJS9I">
+            </div>
 
-  <script src="script.js"></script>
+            <progress value="0" max="30" id="jb"></progress>
+
+            <p class="progressbar_text">남은시간</p> <p class="progressbar_time"></p>
+
+            <p class="QR_text">QR코드를 리더기에 스캔하세요</p>
+
+            <div class="box_footer">
+                <p class="js-click-modal">상세정보 표시</p>
+            </div>
+        </div>
+
+        <div class="modal" style="display: none;">
+            <div id="box">
+                <img src="https://media.discordapp.net/attachments/1178207901865742368/1182224084508082216/IMG_6802.jpg?ex=6583eafa&amp;is=657175fa&amp;hm=eb46c7be4aacc5769be9925676b28a03570a4ae82abbd9f5a31984a7cc2ce5f2&amp;" ; style="margin-top: 20px;">
+                <h1>정재욱</h1>
+                <h2>030806-3253714</h2>
+                <h3>인천광역시 서구</h3>
+                <h4>2020.11.25</h4>
+                <h5>인천광역시 서구청장</h5>
+
+                <div class="box_footer-detail back-detail">
+                    <p class="js-click-modal">QR정보 표시</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <marquee><p>캡쳐방지 시스템이 작동 중입니다. 캡쳐방지 시스템이 작동 중입니다. 캡쳐방지 시스템이 작동 중입니다. </p></marquee>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" ; integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".js-click-modal").click(function () {
+                document.querySelector('.box_main').style.display = 'none';
+                document.querySelector('.modal').style.display = 'block';
+            });
+
+            $(".back-detail").click(function () {
+                document.querySelector('.box_main').style.display = 'block';
+                document.querySelector('.modal').style.display = 'none';
+            });
+
+            let count = 30
+            setInterval(() => {
+                document.querySelector('.progressbar_time').innerHTML = `${count}초`
+                document.querySelector('#jb').value = count
+                if (count <= 0) {
+                    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                    let result = '';
+                    const charactersLength = characters.length;
+                    for (let i = 0; i < 54; i++) {
+                        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                    }
+                    document.querySelector('#QR_img').src = `https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=${result}`
+                    count = 30
+                }
+                count -= 1
+            }, 1000)
+        })
+    </script>
 </body>
 </html>
